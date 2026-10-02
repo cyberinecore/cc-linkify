@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin.json",
+  "name": "cyberine-linkify",
+  "version": "0.1.0",
+  "description": "Turns long file paths, globs and file:line references in Claude's replies into short clickable file:// links, so they never break across wrapped terminal rows and cmd+click always opens the file. Display only: the stored conversation and what the model reads are unchanged.",
+  "author": {
+    "name": "Nia D Pham",
+    "email": "xinchao@nghia-pham.com"
+  },
+  "homepage": "https://github.com/cyberinecore/cc-linkify",
+  "repository": "https://github.com/cyberinecore/cc-linkify",
+  "privacyPolicyUrl": "https://github.com/cyberinecore/cc-linkify/blob/main/PRIVACY.md",
+  "license": "MIT",
+  "keywords": [
+    "links",
+    "paths",
+    "hyperlinks",
+    "osc8",
+    "terminal",
+    "productivity",
+    "mod"
+  ],
+  "displayName": "Cyberine Linkify"
+}

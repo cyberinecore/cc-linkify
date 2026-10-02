@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "cyberine-linkify",
+  "owner": {
+    "name": "Nia D Pham",
+    "email": "xinchao@nghia-pham.com"
+  },
+  "description": "Clickable short links for file paths in Claude Code replies.",
+  "plugins": [
+    {
+      "name": "cyberine-linkify",
+      "source": "./",
+      "description": "Turns long file paths, globs and file:line in replies into short clickable file:// links.",
+      "category": "productivity"
+    }
+  ]
+}

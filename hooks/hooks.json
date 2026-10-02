@@ -1,0 +1,4 @@
+{
+  "description": "Linkify mod: rewrites assistant reply text for display so file paths, globs and file:line become short-label file:// links",
+  "modules": ["./register.ts"]
+}

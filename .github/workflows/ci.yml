@@ -1,0 +1,41 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm test
+
+  plugin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code@2.1.287
+      - name: Validate the plugin and marketplace
+        run: |
+          claude plugin validate . --strict
+          claude plugin validate .claude-plugin/plugin.json --strict
+      - name: Run the plugin tests
+        run: |
+          out=$(claude plugin test . 2>&1) || status=$?
+          echo "$out"
+          if echo "$out" | grep -q 'rollout switch served off'; then
+            echo "::warning::function hooks are turned off remotely for this runner; plugin tests skipped"
+            exit 0
+          fi
+          exit "${status:-0}"
